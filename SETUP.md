@@ -53,7 +53,12 @@ Le fichier `robots.txt` empêche déjà les moteurs de recherche d'indexer `/esp
 
 ## Liens utilisés
 
-- Paiement Stripe : `https://buy.stripe.com/14A28s0dWcVsbUJ6bA3Ru00`
+- Paiement Stripe (⚠️ actuellement en **mode test** — voir note ci-dessous) :
+  - Claude Code dans le terminal (250 €) : `https://buy.stripe.com/test_7sYcN51a23fn3Hab2f7kc00`
+  - Fly Connectome & IA bio-inspirée (250 €) : `https://buy.stripe.com/test_eVqcN53iag29gtWfiv7kc01`
+  - Pack des deux formations (400 €) : `https://buy.stripe.com/test_8x24gzcSKbLT6Tm5HV7kc02`
+
+  ⚠️ Ces 3 liens commencent par `buy.stripe.com/test_...` : ils sont en **mode test** et n'encaissent pas de vrai argent (utile pour vérifier que tout s'affiche bien, mais aucun client ne peut payer avec). Pour passer en production : basculez votre compte Stripe en mode Live (bouton en haut du Dashboard), recréez les 3 liens dans ce mode, puis donnez-les-moi pour mise à jour du site.
 - Réservation Calendly : `https://calendly.com/michben`
 - Contact : uniquement via Calendly (`https://calendly.com/michben`) — email et téléphone volontairement non affichés sur le site
 
