@@ -55,6 +55,6 @@ Le fichier `robots.txt` empêche déjà les moteurs de recherche d'indexer `/esp
 
 - Paiement Stripe : `https://buy.stripe.com/14A28s0dWcVsbUJ6bA3Ru00`
 - Réservation Calendly : `https://calendly.com/michben`
-- Contact : `contact@michben.fr` / `michben.fr`
+- Contact : `sospchs@gmail.com` / `06 99 91 80 18` (formation en présentiel possible)
 
 Pensez à vérifier/adapter : durée exacte des formations, format (distanciel/présentiel), date de fin de l'offre à -100€, conditions d'annulation — ces points sont listés dans le support de cours PDF comme "à préciser dans le devis".
