@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Espace formation privé — michben</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+
+<!-- ================= GATE (code d'accès) ================= -->
+<div id="gate" class="gate-overlay">
+  <div class="gate-card">
+    <div class="lock">🔒</div>
+    <h1>Espace formation privé</h1>
+    <p>Cet espace est réservé aux personnes inscrites. Saisissez le code d'accès reçu par email après votre paiement.</p>
+    <form id="gate-form">
+      <input type="text" id="gate-input" placeholder="Code d'accès" autocomplete="off" autocapitalize="characters" required>
+      <div class="gate-error" id="gate-error"></div>
+      <button type="submit" class="btn btn-primary btn-block">Accéder à mon espace</button>
+    </form>
+    <div class="gate-help">
+      Vous n'avez pas encore votre code ? <a href="../index.html">Retour à la page de réservation</a><br>
+      ou <a href="mailto:contact@michben.fr">contactez-moi</a> si vous avez déjà payé.
+    </div>
+  </div>
+</div>
+
+<!-- ================= CONTENU PRIVÉ ================= -->
+<div id="content" class="private-hidden">
+
+  <header class="private-header">
+    <div class="container">
+      <a href="../index.html" class="brand"><span class="rocket">🚀</span> michben — Espace formation</a>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <a href="https://calendly.com/michben" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm">📅 Réserver un créneau</a>
+        <button id="logout-btn" class="btn btn-outline-light btn-sm">Se déconnecter</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:30px; padding-bottom:70px;">
+
+    <div class="badge-pill">Bienvenue 👋</div>
+    <h1 style="color:var(--navy); margin:0 0 8px;">Votre espace de formation</h1>
+    <p style="color:var(--muted); max-width:640px;">Retrouvez ici l'intégralité des modules des deux formations, les fiches à compléter et le lien pour réserver vos séances d'accompagnement.</p>
+
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="tab-f1">💻 Formation 1 — Claude Code</button>
+      <button class="tab-btn" data-tab="tab-f2">🪰 Formation 2 — Fly Connectome</button>
+      <button class="tab-btn" data-tab="tab-fiches">📝 Fiches à compléter</button>
+      <button class="tab-btn" data-tab="tab-suivi">📅 Suivi &amp; rendez-vous</button>
+    </nav>
+
+    <!-- ===== FORMATION 1 ===== -->
+    <section id="tab-f1" class="tab-panel active">
+      <div class="card" style="margin-bottom:24px;">
+        <h3>🎯 Objectif de la formation</h3>
+        <p style="color:var(--muted); margin:0;">Apprendre à utiliser Claude Code depuis un terminal pour comprendre un projet, créer une structure, générer ou modifier des fichiers, corriger des erreurs, écrire des tests, documenter le travail et suivre l'avancement d'un projet.</p>
+      </div>
+      <div class="card" style="margin-bottom:24px;">
+        <h3>✅ Pré-requis</h3>
+        <ul class="check-list">
+          <li>Un ordinateur récent et une connexion Internet</li>
+          <li>Un compte Claude compatible avec Claude Code</li>
+          <li>Un terminal ou une invite de commande</li>
+          <li>Un projet à créer ou un dossier de travail</li>
+          <li>Aucune expérience avancée en programmation n'est exigée</li>
+        </ul>
+      </div>
+
+      <details class="module" open>
+        <summary><span class="m-num">Module 1</span> Comprendre l'IA et Claude Code</summary>
+        <div class="m-body">
+          <ul>
+            <li>Intelligence artificielle générative</li>
+            <li>Modèle de langage, prompt et contexte</li>
+            <li>Différence entre conversation et agent de développement</li>
+            <li>Notions de fichier, dossier, projet, code source et test</li>
+            <li>Importance des sauvegardes et de la vérification humaine</li>
+          </ul>
+          <p><strong>Exemple de demande efficace :</strong></p>
+          <pre><code>Analyse le dossier du projet. Explique sa structure.
+Ne modifie aucun fichier pour le moment.
+Indique les trois premières étapes possibles.</code></pre>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><span class="m-num">Module 2</span> Découvrir le terminal</summary>
+        <div class="m-body">
+          <ul>
+            <li>Ouvrir le terminal et identifier le dossier actuel</li>
+            <li>Se déplacer dans les dossiers</li>
+            <li>Créer un dossier de projet</li>
+            <li>Lancer une commande et comprendre une erreur simple</li>
+          </ul>
+          <p><strong>Commandes de base :</strong></p>
+          <pre><code>pwd                  # afficher le dossier actuel
+ls                   # afficher le contenu
+dir                  # équivalent courant sous Windows
+cd nom-du-dossier    # entrer dans un dossier
+cd ..                # revenir au dossier parent
+mkdir mon-projet     # créer un dossier</code></pre>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><span class="m-num">Module 3</span> Installation de Claude Code</summary>
+        <div class="m-body">
+          <p><strong>macOS, Linux ou WSL</strong></p>
+          <pre><code>curl -fsSL https://claude.ai/install.sh | bash</code></pre>
+          <p><strong>Windows PowerShell</strong></p>
+          <pre><code>irm https://claude.ai/install.ps1 | iex</code></pre>
+          <p><strong>Windows CMD</strong></p>
+          <pre><code>curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd</code></pre>
+          <p><strong>Autres méthodes possibles</strong></p>
+          <pre><code>winget install Anthropic.ClaudeCode
+brew install --cask claude-code</code></pre>
+          <p><strong>Vérification</strong></p>
+          <pre><code>claude --version
+claude doctor</code></pre>
+          <p style="font-size:0.85rem;">Les commandes et conditions d'accès peuvent évoluer : vérifiez la documentation officielle le jour de l'installation.</p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><span class="m-num">Module 4</span> Première utilisation</summary>
+        <div class="m-body">
+          <pre><code>claude</code></pre>
+          <p><strong>Exemples de demandes :</strong></p>
+          <ul>
+            <li>Explique-moi ce que fait ce projet</li>
+            <li>Présente-moi la structure des dossiers</li>
+            <li>Quelles technologies sont utilisées ?</li>
+            <li>Ne modifie aucun fichier. Commence par analyser le projet.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><span class="m-num">Module 5</span> Déterminer le projet</summary>
+        <div class="m-body">
+          <p>Avant de créer, on définit le nom, l'objectif, le public, les fonctionnalités, les contraintes et la première version réaliste du projet.</p>
+          <p><em>Exemple : une application de tâches permettant d'ajouter, afficher et terminer des tâches. Les notifications et la synchronisation pourront être ajoutées plus tard.</em></p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><span class="m-num">Module 6</span> Créer et configurer le projet</summary>
+        <div class="m-body">
+          <pre><code>mkdir mon-premier-projet
+cd mon-premier-projet
+claude</code></pre>
+          <p><strong>Prompt de démarrage recommandé :</strong></p>
+          <pre><code>Tu es mon assistant de développement.
+Je suis débutant en informatique. Analyse le dossier actuel sans modifier de fichier.
+Mon objectif est de créer une application simple de gestion de tâches.
+Propose une structure, les technologies adaptées et les difficultés possibles.
+Attends ma validation avant de créer ou modifier des fichiers.</code></pre>
+          <p><strong>Fichier CLAUDE.md recommandé :</strong></p>
+          <pre><code># Instructions du projet
+- Expliquer les modifications avant de les appliquer.
+- Ne jamais supprimer un fichier sans confirmation.
+- Écrire du code compréhensible par un débutant.
+- Mettre à jour la documentation.
+- Exécuter les tests après chaque modification importante.
+- Signaler les erreurs sans les dissimuler.</code></pre>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><span class="m-num">Module 7</span> Formuler de bonnes demandes</summary>
+        <div class="m-body">
+          <p>Une bonne demande contient le contexte, l'objectif, les contraintes, le résultat attendu et une demande de validation.</p>
+          <pre><code>Contexte : application de gestion de tâches.
+Objectif : ajouter un filtre pour les tâches terminées.
+Contraintes : conserver l'interface et ne pas modifier la base de données.
+Résultat : code, explication, test et mise à jour du README.
+Commence par analyser les fichiers et proposer un plan.</code></pre>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><span class="m-num">Module 8</span> Exercices pratiques</summary>
+        <div class="m-body">
+          <p><strong>Exercice 1 — Créer une page d'accueil</strong></p>
+          <pre><code>Crée une page d'accueil simple avec un titre, une description,
+un bouton principal et une mise en page adaptée aux petits écrans.</code></pre>
+          <p><strong>Exercice 2 — Ajouter un formulaire</strong></p>
+          <pre><code>Ajoute un formulaire de création de tâche.
+Refuse les tâches vides, affiche un message clair et ajoute un test.</code></pre>
+          <p><strong>Exercice 3 — Corriger une erreur</strong></p>
+          <pre><code>Une tâche vide peut être enregistrée. Analyse la cause,
+propose une correction et ajoute un test correspondant.</code></pre>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><span class="m-num">Module 9</span> Tests et vérification</summary>
+        <div class="m-body">
+          <ul>
+            <li>Analyser les tests existants</li>
+            <li>Exécuter les tests</li>
+            <li>Ajouter des tests pour les fonctionnalités principales</li>
+            <li>Vérifier qu'une modification ne casse pas l'existant</li>
+            <li>Demander une explication simple en cas d'erreur</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><span class="m-num">Module 10</span> Suivi du projet et Git</summary>
+        <div class="m-body">
+          <table>
+            <tr><th>Élément</th><th>Statut</th><th>Commentaire</th></tr>
+            <tr><td>Définition du projet</td><td>Terminé</td><td>Objectif validé</td></tr>
+            <tr><td>Structure des dossiers</td><td>En cours</td><td>À vérifier</td></tr>
+            <tr><td>Page d'accueil</td><td>À faire</td><td>Première fonctionnalité</td></tr>
+            <tr><td>Tests</td><td>À faire</td><td>Prévoir trois tests</td></tr>
+            <tr><td>Documentation</td><td>En cours</td><td>README à compléter</td></tr>
+          </table>
+          <pre><code>git init
+git status
+git add .
+git commit -m "Création initiale du projet"</code></pre>
+          <p><strong>Commandes Claude Code utiles :</strong></p>
+          <pre><code>/help
+/clear
+/login
+/exit
+
+claude
+claude "explique ce projet"
+claude -p "explique cette fonction"
+claude -c
+claude -r</code></pre>
+        </div>
+      </details>
+
+      <div class="card" style="border-color: var(--red);">
+        <h3>🛡️ Sécurité</h3>
+        <ul class="check-list">
+          <li>Ne jamais partager une clé API ou un mot de passe</li>
+          <li>Vérifier les fichiers avant une suppression</li>
+          <li>Faire une sauvegarde avant une modification importante</li>
+          <li>Ne pas exécuter aveuglément une commande inconnue</li>
+          <li>Contrôler les modifications générées par l'IA</li>
+          <li>Tester le projet après chaque étape</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== FORMATION 2 ===== -->
+    <section id="tab-f2" class="tab-panel">
+      <div class="card" style="margin-bottom:24px;">
+        <h3>ℹ️ Clarification</h3>
+        <p style="color:var(--muted); margin:0;">Le terme « Fly Connectome » peut désigner les données de connectome de la drosophile, l'écosystème FlyWire, un modèle de simulation ou un environnement logiciel spécifique. Ce support présente les principes généraux du connectome de la mouche et de l'IA bio-inspirée. L'environnement exact est précisé ensemble lors de la préparation de la formation.</p>
+      </div>
+
+      <div class="card" style="margin-bottom:24px;">
+        <h3>🎯 Objectifs</h3>
+        <ul class="check-list">
+          <li>Comprendre ce qu'est un connectome</li>
+          <li>Représenter des connexions neuronales sous forme de graphe</li>
+          <li>Comprendre les principes de l'IA bio-inspirée</li>
+          <li>Installer et explorer un environnement de travail</li>
+          <li>Réaliser une première simulation guidée</li>
+          <li>Comprendre l'apprentissage par imitation et par renforcement</li>
+          <li>Identifier les limites scientifiques et techniques</li>
+        </ul>
+      </div>
+
+      <details class="module" open>
+        <summary><span class="m-num">Module 1</span> Comprendre le connectome</summary>
+        <div class="m-body">
+          <p>Un connectome représente les connexions entre les neurones d'un système nerveux. On peut le comparer à une carte : les neurones sont les villes, les synapses sont les routes et les flèches indiquent le sens de circulation. Cette carte ne décrit cependant pas toute l'activité biologique du cerveau.</p>
+          <pre><code>G = (V, E)
+
+V  : ensemble des neurones
+E  : ensemble des connexions
+Wij : poids ou importance d'une connexion entre i et j</code></pre>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><span class="m-num">Module 2</span> IA bio-inspirée</summary>
+        <div class="m-body">
+          <table>
+            <tr><th>Biologie</th><th>Représentation informatique simplifiée</th></tr>
+            <tr><td>Neurone</td><td>Nœud du graphe</td></tr>
+            <tr><td>Synapse</td><td>Arête ou connexion</td></tr>
+            <tr><td>Signal neuronal</td><td>Valeur numérique</td></tr>
+            <tr><td>Neurone sensoriel</td><td>Entrée du modèle</td></tr>
+            <tr><td>Neurone moteur</td><td>Sortie du modèle</td></tr>
+            <tr><td>Mouvement</td><td>Action simulée</td></tr>
+            <tr><td>Récompense</td><td>Signal d'apprentissage</td></tr>
+          </table>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><span class="m-num">Module 3</span> Architecture simplifiée</summary>
+        <div class="m-body">
+          <pre><code>Observation de l'environnement
+        ↓
+  Encodage numérique
+        ↓
+  Neurones afférents
+        ↓
+  Propagation dans le graphe
+        ↓
+  Neurones intrinsèques
+        ↓
+  Neurones efférents
+        ↓
+  Actions motrices
+        ↓
+  Mouche virtuelle</code></pre>
+          <p>Les neurones afférents reçoivent les informations sensorielles, les neurones intrinsèques traitent et transmettent les informations, et les neurones efférents produisent les commandes motrices.</p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><span class="m-num">Module 4</span> Installation de l'environnement</summary>
+        <div class="m-body">
+          <p>La procédure exacte dépend du logiciel ou du dépôt utilisé (système d'exploitation, mémoire, processeur, carte graphique, pilotes, version de Python, accès aux données, espace disque).</p>
+          <pre><code>python -m venv fly-connectome-env
+
+# Windows PowerShell
+fly-connectome-env\Scripts\Activate.ps1
+
+# macOS / Linux
+source fly-connectome-env/bin/activate
+
+python -m pip install --upgrade pip</code></pre>
+          <p><strong>Organisation recommandée :</strong></p>
+          <pre><code>fly-connectome-project/
+├── README.md
+├── requirements.txt
+├── data/
+├── notebooks/
+├── src/
+├── models/
+├── results/
+├── scripts/
+└── docs/</code></pre>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><span class="m-num">Module 5</span> Projet pédagogique simplifié</summary>
+        <div class="m-body">
+          <p><strong>Projet proposé :</strong> construire un mini-agent inspiré d'un circuit neuronal de mouche, capable de choisir entre avancer, tourner à gauche ou tourner à droite dans un environnement simple.</p>
+          <p><strong>Entrées :</strong> distance devant l'agent, obstacle à gauche, obstacle à droite, direction cible.<br>
+          <strong>Sorties :</strong> avancer, tourner à gauche, tourner à droite ou s'arrêter.</p>
+          <ul>
+            <li>Créer le graphe</li>
+            <li>Définir les connexions</li>
+            <li>Envoyer une observation</li>
+            <li>Propager l'information</li>
+            <li>Produire une action</li>
+            <li>Simuler le déplacement</li>
+            <li>Mesurer la réussite</li>
+            <li>Améliorer les poids</li>
+          </ul>
+          <pre><code>observation = lire_observation()
+signal_sensoriel = encoder(observation)
+message = matrice_connectome @ etat_neuronal
+etat_neuronal = mise_a_jour(message, signal_sensoriel)
+action = decoder(etat_neuronal)
+environnement.executer(action)
+recompense = environnement.calculer_recompense()</code></pre>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><span class="m-num">Module 6</span> Apprentissage</summary>
+        <div class="m-body">
+          <p>L'apprentissage <strong>par imitation</strong> reproduit les actions d'un contrôleur existant. L'apprentissage <strong>par renforcement</strong> fonctionne par cycles : observation, action, réaction de l'environnement, récompense et ajustement du comportement.</p>
+          <p><em>Exemple : une trajectoire stable reçoit une récompense positive, tandis qu'une collision ou une perte d'équilibre entraîne une pénalité.</em></p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><span class="m-num">Module 7</span> Visualisation et expérimentation</summary>
+        <div class="m-body">
+          <p>La visualisation aide à repérer les neurones, les groupes fonctionnels, les connexions principales et la circulation de l'information. Elle ne constitue pas à elle seule une preuve scientifique.</p>
+          <p>Chaque expérience doit préciser une question, une hypothèse, une configuration, une mesure et une conclusion.</p>
+          <table>
+            <tr><th>Modèle</th><th>Structure</th></tr>
+            <tr><td>A</td><td>Graphe inspiré du connectome</td></tr>
+            <tr><td>B</td><td>Graphe aléatoire</td></tr>
+            <tr><td>C</td><td>Réseau dense classique</td></tr>
+          </table>
+          <p style="font-size:0.85rem;">Mesures possibles : temps d'apprentissage, erreur de trajectoire, stabilité du mouvement, nombre d'épisodes réussis, mémoire utilisée, temps de calcul.</p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><span class="m-num">Module 8</span> Limites</summary>
+        <div class="m-body">
+          <ul>
+            <li>Un connectome décrit une structure, pas toute l'activité cérébrale</li>
+            <li>Les données biologiques peuvent être incomplètes ou évoluer</li>
+            <li>Une simulation n'est pas un cerveau réel</li>
+            <li>Les performances dépendent des données et de l'entraînement</li>
+            <li>La puissance informatique nécessaire peut être importante</li>
+            <li>Le terme Fly Connectome doit être défini précisément selon le projet</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- ===== FICHES ===== -->
+    <section id="tab-fiches" class="tab-panel">
+      <div class="card" style="margin-bottom:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <div>
+          <h3 style="margin-bottom:4px;">📝 Vos fiches de formation</h3>
+          <p style="color:var(--muted); margin:0; font-size:0.9rem;">Elles se sauvegardent automatiquement dans votre navigateur. Téléchargez-les à tout moment.</p>
+        </div>
+        <div style="text-align:right;">
+          <button id="download-fiches" class="btn btn-primary btn-sm">⬇️ Télécharger mes fiches</button>
+          <div class="save-hint" id="fiches-save-hint"></div>
+        </div>
+      </div>
+
+      <div class="fiche-card">
+        <h3>Fiche de préparation</h3>
+        <p class="fiche-desc">À remplir avant votre première séance.</p>
+        <div class="fiche-field"><label>Système d'exploitation</label><input type="text" data-fiche-field="prep_os"></div>
+        <div class="fiche-field"><label>Niveau en informatique</label><input type="text" data-fiche-field="prep_niveau"></div>
+        <div class="fiche-field"><label>Compte Claude disponible</label><input type="text" data-fiche-field="prep_compte"></div>
+        <div class="fiche-field"><label>Projet souhaité</label><input type="text" data-fiche-field="prep_projet"></div>
+        <div class="fiche-field"><label>Logiciel ou dépôt Fly Connectome utilisé</label><input type="text" data-fiche-field="prep_fly"></div>
+        <div class="fiche-field"><label>Carte graphique disponible</label><input type="text" data-fiche-field="prep_gpu"></div>
+        <div class="fiche-field"><label>Objectif de la formation</label><textarea rows="2" data-fiche-field="prep_objectif"></textarea></div>
+      </div>
+
+      <div class="fiche-card">
+        <h3>Fiche de détermination du projet</h3>
+        <div class="fiche-field"><label>Nom du projet</label><input type="text" data-fiche-field="det_nom"></div>
+        <div class="fiche-field"><label>Objectif</label><textarea rows="2" data-fiche-field="det_objectif"></textarea></div>
+        <div class="fiche-field"><label>Public concerné</label><input type="text" data-fiche-field="det_public"></div>
+        <div class="fiche-field"><label>Problème résolu</label><textarea rows="2" data-fiche-field="det_probleme"></textarea></div>
+        <div class="fiche-field"><label>Fonctionnalités principales</label><textarea rows="2" data-fiche-field="det_fonctionnalites"></textarea></div>
+        <div class="fiche-field"><label>Contraintes</label><textarea rows="2" data-fiche-field="det_contraintes"></textarea></div>
+        <div class="fiche-field"><label>Risques</label><textarea rows="2" data-fiche-field="det_risques"></textarea></div>
+        <div class="fiche-field"><label>Première version</label><textarea rows="2" data-fiche-field="det_v1"></textarea></div>
+        <div class="fiche-field"><label>Améliorations futures</label><textarea rows="2" data-fiche-field="det_futures"></textarea></div>
+      </div>
+
+      <div class="fiche-card">
+        <h3>Fiche de suivi de séance</h3>
+        <div class="fiche-field"><label>Date</label><input type="text" data-fiche-field="suivi_date"></div>
+        <div class="fiche-field"><label>Objectif de la séance</label><input type="text" data-fiche-field="suivi_objectif"></div>
+        <div class="fiche-field"><label>Travail effectué</label><textarea rows="2" data-fiche-field="suivi_travail"></textarea></div>
+        <div class="fiche-field"><label>Fichiers modifiés</label><input type="text" data-fiche-field="suivi_fichiers"></div>
+        <div class="fiche-field"><label>Tests réalisés</label><input type="text" data-fiche-field="suivi_tests"></div>
+        <div class="fiche-field"><label>Problèmes rencontrés</label><textarea rows="2" data-fiche-field="suivi_problemes"></textarea></div>
+        <div class="fiche-field"><label>Solutions appliquées</label><textarea rows="2" data-fiche-field="suivi_solutions"></textarea></div>
+        <div class="fiche-field"><label>Prochaine étape</label><input type="text" data-fiche-field="suivi_prochaine"></div>
+      </div>
+
+      <div class="fiche-card">
+        <h3>Fiche de demande à l'IA</h3>
+        <p class="fiche-desc">À remplir avant de formuler une demande à Claude Code — vous pouvez ensuite copier ce contenu dans votre terminal.</p>
+        <div class="fiche-field"><label>Contexte</label><textarea rows="2" data-fiche-field="ia_contexte"></textarea></div>
+        <div class="fiche-field"><label>Objectif</label><textarea rows="2" data-fiche-field="ia_objectif"></textarea></div>
+        <div class="fiche-field"><label>Fichiers concernés</label><input type="text" data-fiche-field="ia_fichiers"></div>
+        <div class="fiche-field"><label>Contraintes</label><textarea rows="2" data-fiche-field="ia_contraintes"></textarea></div>
+        <div class="fiche-field"><label>Résultat souhaité</label><textarea rows="2" data-fiche-field="ia_resultat"></textarea></div>
+        <div class="fiche-field"><label>Niveau d'explication souhaité</label><input type="text" data-fiche-field="ia_niveau"></div>
+        <div class="fiche-field"><label>Modification immédiate (Oui / Non)</label><input type="text" data-fiche-field="ia_modif"></div>
+      </div>
+    </section>
+
+    <!-- ===== SUIVI ===== -->
+    <section id="tab-suivi" class="tab-panel">
+      <div class="card" style="text-align:center; padding:44px 30px;">
+        <h3 style="justify-content:center;">📅 Réserver une séance d'accompagnement</h3>
+        <p style="color:var(--muted); max-width:480px; margin:0 auto 22px;">Planifiez vos séances de formation ou de suivi directement via Calendly.</p>
+        <a href="https://calendly.com/michben" target="_blank" rel="noopener" class="btn btn-primary">📅 Ouvrir Calendly</a>
+      </div>
+      <div class="card" style="margin-top:22px;">
+        <h3>✉️ Besoin d'aide ?</h3>
+        <p style="color:var(--muted); margin:0;">Pour toute question sur la formation ou votre accès, écrivez à <a href="mailto:contact@michben.fr" style="color:var(--purple); font-weight:700;">contact@michben.fr</a>.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
