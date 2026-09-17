@@ -85,6 +85,11 @@
           <pre><code>Analyse le dossier du projet. Explique sa structure.
 Ne modifie aucun fichier pour le moment.
 Indique les trois premières étapes possibles.</code></pre>
+
+          <div class="activity-box">
+            <div class="activity-title">🎯 Activité — Feu vert / feu rouge</div>
+            <p>Pour chacune de ces actions, demandez-vous si elle est raisonnable (🟢) ou si elle doit être contrôlée (🔴) : analyser un projet, supprimer tous les fichiers, demander la liste des fichiers modifiés, partager une clé API, créer une sauvegarde. Cet exercice aide à repérer les actions à risque avant de les exécuter.</p>
+          </div>
         </div>
       </details>
 
@@ -104,6 +109,17 @@ dir                  # équivalent courant sous Windows
 cd nom-du-dossier    # entrer dans un dossier
 cd ..                # revenir au dossier parent
 mkdir mon-projet     # créer un dossier</code></pre>
+
+          <div class="activity-box">
+            <div class="activity-title">🎯 Activité — Le terminal comme explorateur</div>
+            <p>Comparez le terminal à un explorateur de fichiers : exécutez une commande, observez le résultat, puis demandez-vous « Où sommes-nous ? Que contient ce dossier ? ». Regardez l'animation ci-dessous pour visualiser le lien entre commande, dossier et résultat.</p>
+          </div>
+
+          <div class="anim-terminal" data-lines='[{"cmd":"pwd","out":"/Users/eleve/mon-projet"},{"cmd":"ls","out":"README.md  src/  package.json"},{"cmd":"mkdir mon-projet","out":""},{"cmd":"cd mon-projet","out":""}]'>
+            <div class="anim-terminal-header"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="label">terminal</span></div>
+            <div class="anim-terminal-body"></div>
+            <div class="anim-terminal-controls"><button type="button" class="btn btn-secondary btn-sm anim-replay">▶️ Rejouer l'animation</button></div>
+          </div>
         </div>
       </details>
 
@@ -168,6 +184,23 @@ Attends ma validation avant de créer ou modifier des fichiers.</code></pre>
 - Mettre à jour la documentation.
 - Exécuter les tests après chaque modification importante.
 - Signaler les erreurs sans les dissimuler.</code></pre>
+
+          <div class="activity-box">
+            <div class="activity-title">🎯 Activité — Le projet en puzzle</div>
+            <p>Remettez dans l'ordre logique : comprendre, planifier, créer, tester, documenter, sauvegarder. Chaque étape correspond à un élément du projet (README, code, tests, données, documentation, sauvegardes).</p>
+          </div>
+
+          <p><strong>Ce que Claude Code va créer, petit à petit :</strong></p>
+          <div class="anim-filetree">
+            <div class="file-line">📁 mon-premier-projet/</div>
+            <div class="file-line">├── 📄 README.md</div>
+            <div class="file-line">├── 📄 CLAUDE.md</div>
+            <div class="file-line">├── 📁 src/</div>
+            <div class="file-line">│   └── 📄 index.js</div>
+            <div class="file-line">├── 📁 tests/</div>
+            <div class="file-line">│   └── 📄 index.test.js</div>
+            <div class="file-line">└── 📄 package.json</div>
+          </div>
         </div>
       </details>
 
@@ -180,6 +213,26 @@ Objectif : ajouter un filtre pour les tâches terminées.
 Contraintes : conserver l'interface et ne pas modifier la base de données.
 Résultat : code, explication, test et mise à jour du README.
 Commence par analyser les fichiers et proposer un plan.</code></pre>
+
+          <div class="activity-box">
+            <div class="activity-title">🎯 Activité — Le prompt comme cahier des charges</div>
+            <p>Comparez les deux demandes ci-dessous : laquelle donnera le meilleur résultat ?</p>
+          </div>
+
+          <div class="anim-prompt-grid">
+            <div class="anim-prompt-card anim-prompt-weak">
+              <strong>❌ Demande faible</strong><br>
+              « Améliore mon application. »
+            </div>
+            <div class="anim-prompt-arrow">→</div>
+            <div class="anim-prompt-card anim-prompt-good hidden-reveal" id="prompt-good-1">
+              <strong>✅ Demande structurée</strong><br>
+              « Analyse le projet, ne modifie rien, propose un plan pour ajouter un filtre aux tâches terminées et attends ma validation. »
+            </div>
+          </div>
+          <div style="text-align:center;">
+            <button type="button" class="btn btn-secondary btn-sm" data-prompt-reveal-btn="prompt-good-1">✨ Voir la version structurée</button>
+          </div>
         </div>
       </details>
 
@@ -222,10 +275,47 @@ propose une correction et ajoute un test correspondant.</code></pre>
             <tr><td>Tests</td><td>À faire</td><td>Prévoir trois tests</td></tr>
             <tr><td>Documentation</td><td>En cours</td><td>README à compléter</td></tr>
           </table>
+
+          <p><strong>🗂️ Suivi visuel (glissez les cartes entre les colonnes) :</strong></p>
+          <div class="kanban-board">
+            <div class="kanban-col" data-col="todo">
+              <h4>À faire</h4>
+              <div class="kanban-cards">
+                <div class="kanban-card" id="card-tests">Prévoir trois tests</div>
+                <div class="kanban-card" id="card-fly-sim">Fly : première simulation</div>
+              </div>
+            </div>
+            <div class="kanban-col" data-col="doing">
+              <h4>En cours</h4>
+              <div class="kanban-cards">
+                <div class="kanban-card" id="card-structure">Analyser les dossiers</div>
+                <div class="kanban-card" id="card-doc">Mettre à jour le README</div>
+              </div>
+            </div>
+            <div class="kanban-col" data-col="testing">
+              <h4>À tester</h4>
+              <div class="kanban-cards">
+                <div class="kanban-card" id="card-filtre">Filtre tâches terminées</div>
+              </div>
+            </div>
+            <div class="kanban-col" data-col="done">
+              <h4>Terminé</h4>
+              <div class="kanban-cards">
+                <div class="kanban-card" id="card-def">Définition du projet</div>
+              </div>
+            </div>
+          </div>
+
           <pre><code>git init
 git status
 git add .
 git commit -m "Création initiale du projet"</code></pre>
+
+          <div class="activity-box">
+            <div class="activity-title">🎯 Activité — Avant / après</div>
+            <p>Observez le projet avant une modification, faites une sauvegarde ou un commit, puis effectuez une petite modification. Comparez l'état avant et après : le suivi réduit le risque d'erreur.</p>
+          </div>
+
           <p><strong>Commandes Claude Code utiles :</strong></p>
           <pre><code>/help
 /clear
@@ -282,6 +372,11 @@ claude -r</code></pre>
 V  : ensemble des neurones
 E  : ensemble des connexions
 Wij : poids ou importance d'une connexion entre i et j</code></pre>
+
+          <div class="activity-box">
+            <div class="activity-title">🎯 Activité — Le réseau humain</div>
+            <p>Distribuez des rôles : neurones sensoriels, neurones intermédiaires et neurones moteurs. Faites circuler une carte « obstacle à gauche » et observez quelle sortie est activée. Cette activité rend concrète la propagation de l'information dans un connectome.</p>
+          </div>
         </div>
       </details>
 
@@ -320,6 +415,58 @@ Wij : poids ou importance d'une connexion entre i et j</code></pre>
         ↓
   Mouche virtuelle</code></pre>
           <p>Les neurones afférents reçoivent les informations sensorielles, les neurones intrinsèques traitent et transmettent les informations, et les neurones efférents produisent les commandes motrices.</p>
+
+          <p><strong>🪰 Flux neuronal animé :</strong> le signal (point violet) circule des neurones sensoriels vers les neurones moteurs, en passant par la couche intermédiaire.</p>
+          <div class="anim-connectome">
+            <svg id="connectome-svg" viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg">
+              <!-- edges -->
+              <g class="edge-group">
+                <line class="edge" x1="40" y1="40" x2="190" y2="25"></line>
+                <line class="edge" x1="40" y1="40" x2="190" y2="75"></line>
+                <line class="edge" x1="40" y1="40" x2="190" y2="125"></line>
+                <line class="edge" x1="40" y1="40" x2="190" y2="175"></line>
+                <line class="edge" x1="40" y1="100" x2="190" y2="25"></line>
+                <line class="edge" x1="40" y1="100" x2="190" y2="75"></line>
+                <line class="edge" x1="40" y1="100" x2="190" y2="125"></line>
+                <line class="edge" x1="40" y1="100" x2="190" y2="175"></line>
+                <line class="edge" x1="40" y1="160" x2="190" y2="25"></line>
+                <line class="edge" x1="40" y1="160" x2="190" y2="75"></line>
+                <line class="edge" x1="40" y1="160" x2="190" y2="125"></line>
+                <line class="edge" x1="40" y1="160" x2="190" y2="175"></line>
+                <line class="edge" x1="190" y1="25" x2="340" y2="70"></line>
+                <line class="edge" x1="190" y1="25" x2="340" y2="130"></line>
+                <line class="edge" x1="190" y1="75" x2="340" y2="70"></line>
+                <line class="edge" x1="190" y1="75" x2="340" y2="130"></line>
+                <line class="edge" x1="190" y1="125" x2="340" y2="70"></line>
+                <line class="edge" x1="190" y1="125" x2="340" y2="130"></line>
+                <line class="edge" x1="190" y1="175" x2="340" y2="70"></line>
+                <line class="edge" x1="190" y1="175" x2="340" y2="130"></line>
+              </g>
+              <!-- nodes -->
+              <circle class="node-circle node-sens" cx="40" cy="40" r="9"></circle>
+              <circle class="node-circle node-sens" cx="40" cy="100" r="9"></circle>
+              <circle class="node-circle node-sens" cx="40" cy="160" r="9"></circle>
+              <circle class="node-circle node-mid" cx="190" cy="25" r="9"></circle>
+              <circle class="node-circle node-mid" cx="190" cy="75" r="9"></circle>
+              <circle class="node-circle node-mid" cx="190" cy="125" r="9"></circle>
+              <circle class="node-circle node-mid" cx="190" cy="175" r="9"></circle>
+              <circle class="node-circle node-motor" cx="340" cy="70" r="9"></circle>
+              <circle class="node-circle node-motor" cx="340" cy="130" r="9"></circle>
+              <text class="node-label" x="18" y="12">sensoriels</text>
+              <text class="node-label" x="168" y="12">intermédiaires</text>
+              <text class="node-label" x="322" y="55">moteurs</text>
+            </svg>
+            <div class="anim-legend">
+              <span><span class="dot-legend" style="border-color:var(--green);"></span> Neurones sensoriels</span>
+              <span><span class="dot-legend" style="border-color:var(--purple);"></span> Neurones intermédiaires</span>
+              <span><span class="dot-legend" style="border-color:var(--red);"></span> Neurones moteurs</span>
+            </div>
+            <div class="anim-controls">
+              <button type="button" id="connectome-play" class="btn btn-primary btn-sm">▶️ Lancer</button>
+              <button type="button" id="connectome-pause" class="btn btn-secondary btn-sm">⏸️ Pause</button>
+              <button type="button" id="connectome-reset" class="btn btn-secondary btn-sm">🔄 Réinitialiser</button>
+            </div>
+          </div>
         </div>
       </details>
 
@@ -373,6 +520,11 @@ etat_neuronal = mise_a_jour(message, signal_sensoriel)
 action = decoder(etat_neuronal)
 environnement.executer(action)
 recompense = environnement.calculer_recompense()</code></pre>
+
+          <div class="activity-box">
+            <div class="activity-title">🎯 Activité — Le connectome en Lego</div>
+            <p>Construisez un mini-réseau avec des blocs ou des cartes : trois entrées, deux neurones de décision et trois sorties. Changez les connexions et comparez les comportements obtenus : l'architecture influence directement les actions produites.</p>
+          </div>
         </div>
       </details>
 
@@ -381,6 +533,20 @@ recompense = environnement.calculer_recompense()</code></pre>
         <div class="m-body">
           <p>L'apprentissage <strong>par imitation</strong> reproduit les actions d'un contrôleur existant. L'apprentissage <strong>par renforcement</strong> fonctionne par cycles : observation, action, réaction de l'environnement, récompense et ajustement du comportement.</p>
           <p><em>Exemple : une trajectoire stable reçoit une récompense positive, tandis qu'une collision ou une perte d'équilibre entraîne une pénalité.</em></p>
+
+          <div class="activity-box">
+            <div class="activity-title">🎯 Activité — Imitation ou récompense ?</div>
+            <p>Scénario 1 : le modèle observe un expert et reproduit ses actions → c'est l'<strong>imitation</strong>. Scénario 2 : il essaie des actions et reçoit une récompense → c'est le <strong>renforcement</strong>. Testez la jauge ci-dessous pour ressentir l'effet d'une récompense ou d'une pénalité.</p>
+          </div>
+
+          <div class="anim-gauge-wrap">
+            <div class="anim-gauge-face">🙂</div>
+            <div class="anim-gauge-track"><div class="anim-gauge-fill"></div></div>
+            <div class="anim-gauge-buttons">
+              <button type="button" class="btn btn-secondary btn-sm" data-reward="15">✅ Trajectoire stable (+15)</button>
+              <button type="button" class="btn btn-secondary btn-sm" data-reward="-20">💥 Collision (−20)</button>
+            </div>
+          </div>
         </div>
       </details>
 
@@ -481,130 +647,376 @@ recompense = environnement.calculer_recompense()</code></pre>
     <section id="tab-quiz" class="tab-panel">
       <div class="card" style="margin-bottom:24px;">
         <h3>🧠 Vérifiez vos acquis</h3>
-        <p style="color:var(--muted); margin:0;">10 questions pour vérifier que vous avez bien compris les points clés des deux formations. Répondez puis cliquez sur « Corriger mon quiz » en bas de page.</p>
+        <p style="color:var(--muted); margin:0;">Trois quiz au choix : un par formation, et un mélange des deux pour tester votre vision d'ensemble. Répondez puis cliquez sur « Corriger » en bas de chaque quiz.</p>
       </div>
 
-      <div id="quiz-result" class="quiz-result">
-        <div style="font-weight:700; color:var(--navy);">Votre score</div>
-        <div class="score" id="quiz-score">0 / 10</div>
-        <div id="quiz-message" style="color:var(--muted);"></div>
+      <nav class="tabs" style="margin-top:0;">
+        <button class="tab-btn active" data-quiz-tab="quiz-cc">💻 Quiz Claude Code</button>
+        <button class="tab-btn" data-quiz-tab="quiz-fly">🪰 Quiz Fly Connectome</button>
+        <button class="tab-btn" data-quiz-tab="quiz-mix">🔀 Quiz Mixte</button>
+      </nav>
+
+      <!-- QUIZ 1 : CLAUDE CODE -->
+      <div id="quiz-cc" class="quiz-panel active">
+        <div id="result-quiz-cc" class="quiz-result">
+          <div style="font-weight:700; color:var(--navy);">Votre score</div>
+          <div class="score" data-score-el>0 / 10</div>
+          <div data-message-el style="color:var(--muted);"></div>
+        </div>
+        <form class="quiz-form" data-quiz-type="claude_code" data-total="10">
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">1</span> À quoi sert un terminal ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="cc1" value="a"> À exécuter des commandes et interagir avec le système</label>
+              <label><input type="radio" name="cc1" value="b"> À dessiner des images</label>
+              <label><input type="radio" name="cc1" value="c"> À naviguer sur internet uniquement</label>
+              <label><input type="radio" name="cc1" value="d"> À stocker des mots de passe</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">2</span> Pourquoi analyser un projet avant de le modifier ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="cc2" value="a"> Pour comprendre le projet et réduire les erreurs</label>
+              <label><input type="radio" name="cc2" value="b"> Pour perdre du temps</label>
+              <label><input type="radio" name="cc2" value="c"> Ce n'est pas nécessaire</label>
+              <label><input type="radio" name="cc2" value="d"> Pour impressionner le client</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">3</span> Que vérifie <code class="inline-code">claude --version</code> ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="cc3" value="a"> Que Claude Code est installé et accessible</label>
+              <label><input type="radio" name="cc3" value="b"> La version de Windows</label>
+              <label><input type="radio" name="cc3" value="c"> Le prix de l'abonnement</label>
+              <label><input type="radio" name="cc3" value="d"> La vitesse d'internet</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">4</span> Pourquoi utiliser un fichier <code class="inline-code">CLAUDE.md</code> ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="cc4" value="a"> Pour conserver les règles et consignes du projet</label>
+              <label><input type="radio" name="cc4" value="b"> Pour stocker des mots de passe</label>
+              <label><input type="radio" name="cc4" value="c"> C'est un fichier obligatoire de Windows</label>
+              <label><input type="radio" name="cc4" value="d"> Pour améliorer la vitesse d'internet</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">5</span> Que signifie MVP ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="cc5" value="a"> Première version utile et limitée du projet</label>
+              <label><input type="radio" name="cc5" value="b"> Le meilleur joueur du projet</label>
+              <label><input type="radio" name="cc5" value="c"> Un type de virus informatique</label>
+              <label><input type="radio" name="cc5" value="d"> Une commande Git</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">6</span> À quoi sert <code class="inline-code">git status</code> ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="cc6" value="a"> À voir l'état et les fichiers modifiés</label>
+              <label><input type="radio" name="cc6" value="b"> À supprimer le projet</label>
+              <label><input type="radio" name="cc6" value="c"> À installer Claude Code</label>
+              <label><input type="radio" name="cc6" value="d"> À envoyer un email</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">7</span> Quelle information ne doit jamais être partagée ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="cc7" value="a"> Une clé API, un mot de passe ou une donnée sensible</label>
+              <label><input type="radio" name="cc7" value="b"> Le nom du projet</label>
+              <label><input type="radio" name="cc7" value="c"> La liste des dossiers</label>
+              <label><input type="radio" name="cc7" value="d"> Le résultat d'un test</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">8</span> Que demander avant une suppression de fichiers ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="cc8" value="a"> Une explication, la liste des fichiers et une confirmation</label>
+              <label><input type="radio" name="cc8" value="b"> Rien, on supprime directement</label>
+              <label><input type="radio" name="cc8" value="c"> Une nouvelle installation</label>
+              <label><input type="radio" name="cc8" value="d"> Un redémarrage de l'ordinateur</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">9</span> Quel est un bon prompt ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="cc9" value="a"> Un prompt avec contexte, objectif, contraintes et résultat attendu</label>
+              <label><input type="radio" name="cc9" value="b"> Une seule phrase vague</label>
+              <label><input type="radio" name="cc9" value="c"> Un prompt en majuscules</label>
+              <label><input type="radio" name="cc9" value="d"> Le plus court possible</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">10</span> Pourquoi tester après une modification ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="cc10" value="a"> Pour vérifier que le fonctionnement attendu est conservé</label>
+              <label><input type="radio" name="cc10" value="b"> Pour perdre du temps</label>
+              <label><input type="radio" name="cc10" value="c"> Ce n'est jamais utile</label>
+              <label><input type="radio" name="cc10" value="d"> Uniquement pour le style</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div style="text-align:center; margin-top:8px;">
+            <button type="submit" class="btn btn-primary">✅ Corriger ce quiz</button>
+          </div>
+        </form>
       </div>
 
-      <form id="quiz-form">
-        <div class="quiz-question" data-correct="a">
-          <div class="q-title"><span class="q-num">1</span> Quelle commande permet de vérifier que Claude Code est bien installé ?</div>
-          <div class="quiz-options">
-            <label><input type="radio" name="q1" value="a"> <code class="inline-code">claude --version</code></label>
-            <label><input type="radio" name="q1" value="b"> <code class="inline-code">claude install</code></label>
-            <label><input type="radio" name="q1" value="c"> <code class="inline-code">npm claude</code></label>
-            <label><input type="radio" name="q1" value="d"> <code class="inline-code">claude check</code></label>
+      <!-- QUIZ 2 : FLY CONNECTOME -->
+      <div id="quiz-fly" class="quiz-panel">
+        <div id="result-quiz-fly" class="quiz-result">
+          <div style="font-weight:700; color:var(--navy);">Votre score</div>
+          <div class="score" data-score-el>0 / 10</div>
+          <div data-message-el style="color:var(--muted);"></div>
+        </div>
+        <form class="quiz-form" data-quiz-type="fly_connectome" data-total="10">
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">1</span> Qu'est-ce qu'un connectome ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="fc1" value="a"> Une représentation des connexions d'un système nerveux</label>
+              <label><input type="radio" name="fc1" value="b"> Un langage de programmation</label>
+              <label><input type="radio" name="fc1" value="c"> Un type de base de données</label>
+              <label><input type="radio" name="fc1" value="d"> Un logiciel de dessin</label>
+            </div>
+            <div class="q-feedback"></div>
           </div>
-          <div class="q-feedback"></div>
-        </div>
-
-        <div class="quiz-question" data-correct="b">
-          <div class="q-title"><span class="q-num">2</span> Quelle commande permet de créer un nouveau dossier dans le terminal ?</div>
-          <div class="quiz-options">
-            <label><input type="radio" name="q2" value="a"> <code class="inline-code">cd</code></label>
-            <label><input type="radio" name="q2" value="b"> <code class="inline-code">mkdir</code></label>
-            <label><input type="radio" name="q2" value="c"> <code class="inline-code">ls</code></label>
-            <label><input type="radio" name="q2" value="d"> <code class="inline-code">rm</code></label>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">2</span> Que représentent les nœuds du graphe ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="fc2" value="a"> Les neurones ou unités du modèle</label>
+              <label><input type="radio" name="fc2" value="b"> Les erreurs du programme</label>
+              <label><input type="radio" name="fc2" value="c"> Les fichiers du projet</label>
+              <label><input type="radio" name="fc2" value="d"> Les mots de passe</label>
+            </div>
+            <div class="q-feedback"></div>
           </div>
-          <div class="q-feedback"></div>
-        </div>
-
-        <div class="quiz-question" data-correct="c">
-          <div class="q-title"><span class="q-num">3</span> Avant de créer ou modifier des fichiers, que doit toujours faire l'IA selon la méthode enseignée ?</div>
-          <div class="quiz-options">
-            <label><input type="radio" name="q3" value="a"> Supprimer les anciens fichiers</label>
-            <label><input type="radio" name="q3" value="b"> Installer de nouveaux logiciels</label>
-            <label><input type="radio" name="q3" value="c"> Analyser le projet et attendre la validation</label>
-            <label><input type="radio" name="q3" value="d"> Rien, elle agit directement</label>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">3</span> Que représentent les arêtes du graphe ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="fc3" value="a"> Les connexions entre les neurones</label>
+              <label><input type="radio" name="fc3" value="b"> Les couleurs du graphe</label>
+              <label><input type="radio" name="fc3" value="c"> Les erreurs de calcul</label>
+              <label><input type="radio" name="fc3" value="d"> Les utilisateurs du système</label>
+            </div>
+            <div class="q-feedback"></div>
           </div>
-          <div class="q-feedback"></div>
-        </div>
-
-        <div class="quiz-question" data-correct="a">
-          <div class="q-title"><span class="q-num">4</span> Quel fichier permet de donner des instructions permanentes au projet pour Claude Code ?</div>
-          <div class="quiz-options">
-            <label><input type="radio" name="q4" value="a"> <code class="inline-code">CLAUDE.md</code></label>
-            <label><input type="radio" name="q4" value="b"> <code class="inline-code">README.txt</code></label>
-            <label><input type="radio" name="q4" value="c"> <code class="inline-code">config.json</code></label>
-            <label><input type="radio" name="q4" value="d"> <code class="inline-code">index.html</code></label>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">4</span> Quel rôle ont les neurones afférents ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="fc4" value="a"> Recevoir les informations sensorielles</label>
+              <label><input type="radio" name="fc4" value="b"> Produire les commandes motrices</label>
+              <label><input type="radio" name="fc4" value="c"> Stocker les données</label>
+              <label><input type="radio" name="fc4" value="d"> Afficher les résultats</label>
+            </div>
+            <div class="q-feedback"></div>
           </div>
-          <div class="q-feedback"></div>
-        </div>
-
-        <div class="quiz-question" data-correct="b">
-          <div class="q-title"><span class="q-num">5</span> Quelle commande Git permet d'enregistrer une première version du projet ?</div>
-          <div class="quiz-options">
-            <label><input type="radio" name="q5" value="a"> <code class="inline-code">git status</code></label>
-            <label><input type="radio" name="q5" value="b"> <code class="inline-code">git commit -m "..."</code></label>
-            <label><input type="radio" name="q5" value="c"> <code class="inline-code">git delete</code></label>
-            <label><input type="radio" name="q5" value="d"> <code class="inline-code">git open</code></label>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">5</span> Quel rôle ont les neurones efférents ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="fc5" value="a"> Produire les commandes motrices</label>
+              <label><input type="radio" name="fc5" value="b"> Recevoir les informations sensorielles</label>
+              <label><input type="radio" name="fc5" value="c"> Compter les nœuds</label>
+              <label><input type="radio" name="fc5" value="d"> Sauvegarder le projet</label>
+            </div>
+            <div class="q-feedback"></div>
           </div>
-          <div class="q-feedback"></div>
-        </div>
-
-        <div class="quiz-question" data-correct="d">
-          <div class="q-title"><span class="q-num">6</span> Une bonne demande à l'IA doit surtout contenir…</div>
-          <div class="quiz-options">
-            <label><input type="radio" name="q6" value="a"> Uniquement le nom du projet</label>
-            <label><input type="radio" name="q6" value="b"> Une seule phrase courte</label>
-            <label><input type="radio" name="q6" value="c"> Aucune contrainte, pour laisser l'IA libre</label>
-            <label><input type="radio" name="q6" value="d"> Le contexte, l'objectif, les contraintes et le résultat attendu</label>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">6</span> Qu'est-ce que l'apprentissage par imitation ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="fc6" value="a"> Apprendre à reproduire des actions observées</label>
+              <label><input type="radio" name="fc6" value="b"> Apprendre uniquement au hasard</label>
+              <label><input type="radio" name="fc6" value="c"> Copier un fichier</label>
+              <label><input type="radio" name="fc6" value="d"> Supprimer les erreurs automatiquement</label>
+            </div>
+            <div class="q-feedback"></div>
           </div>
-          <div class="q-feedback"></div>
-        </div>
-
-        <div class="quiz-question" data-correct="c">
-          <div class="q-title"><span class="q-num">7</span> Un connectome représente principalement…</div>
-          <div class="quiz-options">
-            <label><input type="radio" name="q7" value="a"> La mémoire d'un ordinateur</label>
-            <label><input type="radio" name="q7" value="b"> Toute l'activité biologique du cerveau</label>
-            <label><input type="radio" name="q7" value="c"> Les connexions entre les neurones d'un système nerveux</label>
-            <label><input type="radio" name="q7" value="d"> Un langage de programmation</label>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">7</span> Qu'est-ce que le renforcement ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="fc7" value="a"> Apprendre par actions, réactions et récompenses</label>
+              <label><input type="radio" name="fc7" value="b"> Apprendre en lisant un manuel</label>
+              <label><input type="radio" name="fc7" value="c"> Une commande Git</label>
+              <label><input type="radio" name="fc7" value="d"> Une méthode d'installation</label>
+            </div>
+            <div class="q-feedback"></div>
           </div>
-          <div class="q-feedback"></div>
-        </div>
-
-        <div class="quiz-question" data-correct="a">
-          <div class="q-title"><span class="q-num">8</span> Dans la représentation en graphe <code class="inline-code">G = (V, E)</code>, que représente <code class="inline-code">V</code> ?</div>
-          <div class="quiz-options">
-            <label><input type="radio" name="q8" value="a"> L'ensemble des neurones</label>
-            <label><input type="radio" name="q8" value="b"> L'ensemble des connexions</label>
-            <label><input type="radio" name="q8" value="c"> La vitesse de calcul</label>
-            <label><input type="radio" name="q8" value="d"> Le nombre de simulations</label>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">8</span> Pourquoi comparer plusieurs modèles ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="fc8" value="a"> Pour évaluer l'effet de la structure utilisée</label>
+              <label><input type="radio" name="fc8" value="b"> Pour perdre du temps</label>
+              <label><input type="radio" name="fc8" value="c"> Ce n'est jamais utile</label>
+              <label><input type="radio" name="fc8" value="d"> Pour changer de langage de programmation</label>
+            </div>
+            <div class="q-feedback"></div>
           </div>
-          <div class="q-feedback"></div>
-        </div>
-
-        <div class="quiz-question" data-correct="b">
-          <div class="q-title"><span class="q-num">9</span> Quel type d'apprentissage reproduit les actions d'un contrôleur existant ?</div>
-          <div class="quiz-options">
-            <label><input type="radio" name="q9" value="a"> L'apprentissage par renforcement</label>
-            <label><input type="radio" name="q9" value="b"> L'apprentissage par imitation</label>
-            <label><input type="radio" name="q9" value="c"> L'apprentissage supervisé de graphe</label>
-            <label><input type="radio" name="q9" value="d"> Aucun, c'est aléatoire</label>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">9</span> Une simulation est-elle un cerveau réel ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="fc9" value="a"> Non, c'est une représentation informatique simplifiée</label>
+              <label><input type="radio" name="fc9" value="b"> Oui, exactement identique</label>
+              <label><input type="radio" name="fc9" value="c"> Oui, si l'ordinateur est assez puissant</label>
+              <label><input type="radio" name="fc9" value="d"> La question n'a pas de sens</label>
+            </div>
+            <div class="q-feedback"></div>
           </div>
-          <div class="q-feedback"></div>
-        </div>
-
-        <div class="quiz-question" data-correct="b">
-          <div class="q-title"><span class="q-num">10</span> Une simulation basée sur un connectome est-elle un cerveau réel ?</div>
-          <div class="quiz-options">
-            <label><input type="radio" name="q10" value="a"> Oui, c'est exactement identique</label>
-            <label><input type="radio" name="q10" value="b"> Non, c'est une représentation simplifiée avec des limites</label>
-            <label><input type="radio" name="q10" value="c"> Oui, si l'ordinateur est assez puissant</label>
-            <label><input type="radio" name="q10" value="d"> La question n'a pas de sens</label>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">10</span> Pourquoi mesurer le temps et la mémoire utilisés ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="fc10" value="a"> Pour évaluer le coût pratique du modèle</label>
+              <label><input type="radio" name="fc10" value="b"> Pour décorer le graphique</label>
+              <label><input type="radio" name="fc10" value="c"> Ce n'est jamais utile</label>
+              <label><input type="radio" name="fc10" value="d"> Pour changer la couleur des nœuds</label>
+            </div>
+            <div class="q-feedback"></div>
           </div>
-          <div class="q-feedback"></div>
-        </div>
+          <div style="text-align:center; margin-top:8px;">
+            <button type="submit" class="btn btn-primary">✅ Corriger ce quiz</button>
+          </div>
+        </form>
+      </div>
 
-        <div style="text-align:center; margin-top:8px;">
-          <button type="submit" class="btn btn-primary">✅ Corriger mon quiz</button>
+      <!-- QUIZ 3 : MIXTE -->
+      <div id="quiz-mix" class="quiz-panel">
+        <div id="result-quiz-mix" class="quiz-result">
+          <div style="font-weight:700; color:var(--navy);">Votre score</div>
+          <div class="score" data-score-el>0 / 12</div>
+          <div data-message-el style="color:var(--muted);"></div>
         </div>
-      </form>
+        <form class="quiz-form" data-quiz-type="mixte" data-total="12">
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">1</span> Quelle est la première étape avant de demander une modification à l'IA ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="mx1" value="a"> Analyser et comprendre le projet</label>
+              <label><input type="radio" name="mx1" value="b"> Supprimer tous les fichiers</label>
+              <label><input type="radio" name="mx1" value="c"> Ignorer le projet existant</label>
+              <label><input type="radio" name="mx1" value="d"> Changer de langage de programmation</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">2</span> Pourquoi faut-il décrire le contexte d'un projet à l'IA ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="mx2" value="a"> Pour lui donner les informations nécessaires</label>
+              <label><input type="radio" name="mx2" value="b"> Ce n'est pas nécessaire</label>
+              <label><input type="radio" name="mx2" value="c"> Pour ralentir le travail</label>
+              <label><input type="radio" name="mx2" value="d"> Uniquement pour la forme</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">3</span> Quelle commande permet de vérifier Claude Code ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="mx3" value="a"> <code class="inline-code">claude --version</code></label>
+              <label><input type="radio" name="mx3" value="b"> <code class="inline-code">claude check</code></label>
+              <label><input type="radio" name="mx3" value="c"> <code class="inline-code">npm claude</code></label>
+              <label><input type="radio" name="mx3" value="d"> <code class="inline-code">claude test</code></label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">4</span> À quoi sert un fichier <code class="inline-code">README.md</code> ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="mx4" value="a"> Présenter le projet et expliquer son utilisation</label>
+              <label><input type="radio" name="mx4" value="b"> Exécuter le programme</label>
+              <label><input type="radio" name="mx4" value="c"> Stocker les mots de passe</label>
+              <label><input type="radio" name="mx4" value="d"> Remplacer les tests</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">5</span> Pourquoi utiliser une sauvegarde ou Git ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="mx5" value="a"> Pour revenir en arrière et suivre les modifications</label>
+              <label><input type="radio" name="mx5" value="b"> Pour accélérer internet</label>
+              <label><input type="radio" name="mx5" value="c"> Pour supprimer les fichiers inutiles</label>
+              <label><input type="radio" name="mx5" value="d"> Aucune utilité</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">6</span> Qu'est-ce qu'un connectome ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="mx6" value="a"> Une représentation des connexions neuronales</label>
+              <label><input type="radio" name="mx6" value="b"> Un langage de programmation</label>
+              <label><input type="radio" name="mx6" value="c"> Un fichier de configuration</label>
+              <label><input type="radio" name="mx6" value="d"> Un type de test</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">7</span> Quelle différence entre entrée et sortie d'un modèle ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="mx7" value="a"> L'entrée est une information reçue ; la sortie est une action ou un résultat</label>
+              <label><input type="radio" name="mx7" value="b"> Il n'y a aucune différence</label>
+              <label><input type="radio" name="mx7" value="c"> L'entrée est toujours plus rapide</label>
+              <label><input type="radio" name="mx7" value="d"> La sortie précède toujours l'entrée</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">8</span> Comment fonctionne une récompense en apprentissage par renforcement ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="mx8" value="a"> Elle indique si le comportement de l'agent est favorable ou défavorable</label>
+              <label><input type="radio" name="mx8" value="b"> Elle supprime les erreurs automatiquement</label>
+              <label><input type="radio" name="mx8" value="c"> Elle installe un nouveau logiciel</label>
+              <label><input type="radio" name="mx8" value="d"> Elle n'a aucun effet</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">9</span> Pourquoi comparer plusieurs architectures ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="mx9" value="a"> Pour mesurer l'effet de la structure et éviter une conclusion trop rapide</label>
+              <label><input type="radio" name="mx9" value="b"> Pour perdre du temps</label>
+              <label><input type="radio" name="mx9" value="c"> Ce n'est jamais utile</label>
+              <label><input type="radio" name="mx9" value="d"> Pour changer de langage</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">10</span> Quelle précaution prendre avec des données sensibles ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="mx10" value="a"> Ne jamais partager de mot de passe, clé API ou donnée personnelle</label>
+              <label><input type="radio" name="mx10" value="b"> Les publier pour vérifier</label>
+              <label><input type="radio" name="mx10" value="c"> Les envoyer par email à tous</label>
+              <label><input type="radio" name="mx10" value="d"> Aucune précaution nécessaire</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">11</span> Quel est le rôle d'un test ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="mx11" value="a"> Vérifier qu'une fonctionnalité marche et qu'une modification ne casse rien</label>
+              <label><input type="radio" name="mx11" value="b"> Ralentir le développement</label>
+              <label><input type="radio" name="mx11" value="c"> Remplacer la documentation</label>
+              <label><input type="radio" name="mx11" value="d"> Décorer le code</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <div class="q-title"><span class="q-num">12</span> Quelles informations doivent apparaître dans une fiche de projet ?</div>
+            <div class="quiz-options">
+              <label><input type="radio" name="mx12" value="a"> Nom, objectif, public, fonctionnalités, contraintes, risques, première version</label>
+              <label><input type="radio" name="mx12" value="b"> Uniquement le prix</label>
+              <label><input type="radio" name="mx12" value="c"> Le mot de passe administrateur</label>
+              <label><input type="radio" name="mx12" value="d"> La liste des concurrents uniquement</label>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div style="text-align:center; margin-top:8px;">
+            <button type="submit" class="btn btn-primary">✅ Corriger ce quiz</button>
+          </div>
+        </form>
+      </div>
     </section>
 
     <!-- ===== SUIVI ===== -->
