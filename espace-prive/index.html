@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>Espace formation privé — michben</title>
 <link rel="stylesheet" href="../assets/style.css">
-<link rel="icon" href="data:,">
+<link rel="icon" type="image/png" href="../assets/logo.png">
 </head>
 <body>
 
@@ -33,7 +33,7 @@
 
   <header class="private-header">
     <div class="container">
-      <a href="../index.html" class="brand"><span class="rocket">🚀</span> michben — Espace formation</a>
+      <a href="../index.html" class="brand"><img src="../assets/logo.png" alt="michben" class="logo-img"> michben — Espace formation</a>
       <div style="display:flex; gap:10px; align-items:center;">
         <a href="https://calendly.com/michben" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm">📅 Réserver un créneau</a>
         <button id="logout-btn" class="btn btn-outline-light btn-sm">Se déconnecter</button>
@@ -51,6 +51,7 @@
       <button class="tab-btn active" data-tab="tab-f1">💻 Formation 1 — Claude Code</button>
       <button class="tab-btn" data-tab="tab-f2">🪰 Formation 2 — Fly Connectome</button>
       <button class="tab-btn" data-tab="tab-fiches">📝 Fiches à compléter</button>
+      <button class="tab-btn" data-tab="tab-quiz">🧠 Quiz final</button>
       <button class="tab-btn" data-tab="tab-suivi">📅 Suivi &amp; rendez-vous</button>
     </nav>
 
@@ -475,6 +476,136 @@ recompense = environnement.calculer_recompense()</code></pre>
         <div class="fiche-field"><label>Niveau d'explication souhaité</label><input type="text" data-fiche-field="ia_niveau"></div>
         <div class="fiche-field"><label>Modification immédiate (Oui / Non)</label><input type="text" data-fiche-field="ia_modif"></div>
       </div>
+    </section>
+
+    <!-- ===== QUIZ ===== -->
+    <section id="tab-quiz" class="tab-panel">
+      <div class="card" style="margin-bottom:24px;">
+        <h3>🧠 Vérifiez vos acquis</h3>
+        <p style="color:var(--muted); margin:0;">10 questions pour vérifier que vous avez bien compris les points clés des deux formations. Répondez puis cliquez sur « Corriger mon quiz » en bas de page.</p>
+      </div>
+
+      <div id="quiz-result" class="quiz-result">
+        <div style="font-weight:700; color:var(--navy);">Votre score</div>
+        <div class="score" id="quiz-score">0 / 10</div>
+        <div id="quiz-message" style="color:var(--muted);"></div>
+      </div>
+
+      <form id="quiz-form">
+        <div class="quiz-question" data-correct="a">
+          <div class="q-title"><span class="q-num">1</span> Quelle commande permet de vérifier que Claude Code est bien installé ?</div>
+          <div class="quiz-options">
+            <label><input type="radio" name="q1" value="a"> <code class="inline-code">claude --version</code></label>
+            <label><input type="radio" name="q1" value="b"> <code class="inline-code">claude install</code></label>
+            <label><input type="radio" name="q1" value="c"> <code class="inline-code">npm claude</code></label>
+            <label><input type="radio" name="q1" value="d"> <code class="inline-code">claude check</code></label>
+          </div>
+          <div class="q-feedback"></div>
+        </div>
+
+        <div class="quiz-question" data-correct="b">
+          <div class="q-title"><span class="q-num">2</span> Quelle commande permet de créer un nouveau dossier dans le terminal ?</div>
+          <div class="quiz-options">
+            <label><input type="radio" name="q2" value="a"> <code class="inline-code">cd</code></label>
+            <label><input type="radio" name="q2" value="b"> <code class="inline-code">mkdir</code></label>
+            <label><input type="radio" name="q2" value="c"> <code class="inline-code">ls</code></label>
+            <label><input type="radio" name="q2" value="d"> <code class="inline-code">rm</code></label>
+          </div>
+          <div class="q-feedback"></div>
+        </div>
+
+        <div class="quiz-question" data-correct="c">
+          <div class="q-title"><span class="q-num">3</span> Avant de créer ou modifier des fichiers, que doit toujours faire l'IA selon la méthode enseignée ?</div>
+          <div class="quiz-options">
+            <label><input type="radio" name="q3" value="a"> Supprimer les anciens fichiers</label>
+            <label><input type="radio" name="q3" value="b"> Installer de nouveaux logiciels</label>
+            <label><input type="radio" name="q3" value="c"> Analyser le projet et attendre la validation</label>
+            <label><input type="radio" name="q3" value="d"> Rien, elle agit directement</label>
+          </div>
+          <div class="q-feedback"></div>
+        </div>
+
+        <div class="quiz-question" data-correct="a">
+          <div class="q-title"><span class="q-num">4</span> Quel fichier permet de donner des instructions permanentes au projet pour Claude Code ?</div>
+          <div class="quiz-options">
+            <label><input type="radio" name="q4" value="a"> <code class="inline-code">CLAUDE.md</code></label>
+            <label><input type="radio" name="q4" value="b"> <code class="inline-code">README.txt</code></label>
+            <label><input type="radio" name="q4" value="c"> <code class="inline-code">config.json</code></label>
+            <label><input type="radio" name="q4" value="d"> <code class="inline-code">index.html</code></label>
+          </div>
+          <div class="q-feedback"></div>
+        </div>
+
+        <div class="quiz-question" data-correct="b">
+          <div class="q-title"><span class="q-num">5</span> Quelle commande Git permet d'enregistrer une première version du projet ?</div>
+          <div class="quiz-options">
+            <label><input type="radio" name="q5" value="a"> <code class="inline-code">git status</code></label>
+            <label><input type="radio" name="q5" value="b"> <code class="inline-code">git commit -m "..."</code></label>
+            <label><input type="radio" name="q5" value="c"> <code class="inline-code">git delete</code></label>
+            <label><input type="radio" name="q5" value="d"> <code class="inline-code">git open</code></label>
+          </div>
+          <div class="q-feedback"></div>
+        </div>
+
+        <div class="quiz-question" data-correct="d">
+          <div class="q-title"><span class="q-num">6</span> Une bonne demande à l'IA doit surtout contenir…</div>
+          <div class="quiz-options">
+            <label><input type="radio" name="q6" value="a"> Uniquement le nom du projet</label>
+            <label><input type="radio" name="q6" value="b"> Une seule phrase courte</label>
+            <label><input type="radio" name="q6" value="c"> Aucune contrainte, pour laisser l'IA libre</label>
+            <label><input type="radio" name="q6" value="d"> Le contexte, l'objectif, les contraintes et le résultat attendu</label>
+          </div>
+          <div class="q-feedback"></div>
+        </div>
+
+        <div class="quiz-question" data-correct="c">
+          <div class="q-title"><span class="q-num">7</span> Un connectome représente principalement…</div>
+          <div class="quiz-options">
+            <label><input type="radio" name="q7" value="a"> La mémoire d'un ordinateur</label>
+            <label><input type="radio" name="q7" value="b"> Toute l'activité biologique du cerveau</label>
+            <label><input type="radio" name="q7" value="c"> Les connexions entre les neurones d'un système nerveux</label>
+            <label><input type="radio" name="q7" value="d"> Un langage de programmation</label>
+          </div>
+          <div class="q-feedback"></div>
+        </div>
+
+        <div class="quiz-question" data-correct="a">
+          <div class="q-title"><span class="q-num">8</span> Dans la représentation en graphe <code class="inline-code">G = (V, E)</code>, que représente <code class="inline-code">V</code> ?</div>
+          <div class="quiz-options">
+            <label><input type="radio" name="q8" value="a"> L'ensemble des neurones</label>
+            <label><input type="radio" name="q8" value="b"> L'ensemble des connexions</label>
+            <label><input type="radio" name="q8" value="c"> La vitesse de calcul</label>
+            <label><input type="radio" name="q8" value="d"> Le nombre de simulations</label>
+          </div>
+          <div class="q-feedback"></div>
+        </div>
+
+        <div class="quiz-question" data-correct="b">
+          <div class="q-title"><span class="q-num">9</span> Quel type d'apprentissage reproduit les actions d'un contrôleur existant ?</div>
+          <div class="quiz-options">
+            <label><input type="radio" name="q9" value="a"> L'apprentissage par renforcement</label>
+            <label><input type="radio" name="q9" value="b"> L'apprentissage par imitation</label>
+            <label><input type="radio" name="q9" value="c"> L'apprentissage supervisé de graphe</label>
+            <label><input type="radio" name="q9" value="d"> Aucun, c'est aléatoire</label>
+          </div>
+          <div class="q-feedback"></div>
+        </div>
+
+        <div class="quiz-question" data-correct="b">
+          <div class="q-title"><span class="q-num">10</span> Une simulation basée sur un connectome est-elle un cerveau réel ?</div>
+          <div class="quiz-options">
+            <label><input type="radio" name="q10" value="a"> Oui, c'est exactement identique</label>
+            <label><input type="radio" name="q10" value="b"> Non, c'est une représentation simplifiée avec des limites</label>
+            <label><input type="radio" name="q10" value="c"> Oui, si l'ordinateur est assez puissant</label>
+            <label><input type="radio" name="q10" value="d"> La question n'a pas de sens</label>
+          </div>
+          <div class="q-feedback"></div>
+        </div>
+
+        <div style="text-align:center; margin-top:8px;">
+          <button type="submit" class="btn btn-primary">✅ Corriger mon quiz</button>
+        </div>
+      </form>
     </section>
 
     <!-- ===== SUIVI ===== -->

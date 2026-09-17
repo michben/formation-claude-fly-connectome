@@ -117,10 +117,80 @@ function initFiches() {
   }
 }
 
+// --- Quiz final ----------------------------------------------------------
+const QUIZ_KEY = "mb_formation_quiz_v1";
+
+function initQuiz() {
+  const form = document.getElementById("quiz-form");
+  if (!form) return;
+
+  const saved = JSON.parse(localStorage.getItem(QUIZ_KEY) || "null");
+  if (saved) {
+    Object.entries(saved).forEach(([name, value]) => {
+      const input = form.querySelector(`input[name="${name}"][value="${value}"]`);
+      if (input) input.checked = true;
+    });
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const questions = document.querySelectorAll(".quiz-question");
+    let score = 0;
+    const answers = {};
+
+    questions.forEach((q, i) => {
+      const name = "q" + (i + 1);
+      const correct = q.dataset.correct;
+      const checked = form.querySelector(`input[name="${name}"]:checked`);
+      const feedback = q.querySelector(".q-feedback");
+      q.classList.remove("correct", "incorrect");
+
+      if (!checked) {
+        q.classList.add("incorrect");
+        feedback.textContent = "Pas de réponse sélectionnée.";
+        return;
+      }
+      answers[name] = checked.value;
+      if (checked.value === correct) {
+        score++;
+        q.classList.add("correct");
+        feedback.textContent = "✓ Bonne réponse";
+      } else {
+        q.classList.add("incorrect");
+        const correctLabel = q.querySelector(`input[value="${correct}"]`).closest("label").textContent.trim();
+        feedback.textContent = "✗ Réponse attendue : " + correctLabel;
+      }
+    });
+
+    localStorage.setItem(QUIZ_KEY, JSON.stringify(answers));
+
+    const result = document.getElementById("quiz-result");
+    const scoreEl = document.getElementById("quiz-score");
+    const messageEl = document.getElementById("quiz-message");
+    scoreEl.textContent = score + " / 10";
+    result.classList.add("show");
+    result.classList.remove("tier-good", "tier-mid", "tier-low");
+
+    if (score >= 8) {
+      result.classList.add("tier-good");
+      messageEl.textContent = "Excellent ! Vous maîtrisez bien les bases des deux formations.";
+    } else if (score >= 5) {
+      result.classList.add("tier-mid");
+      messageEl.textContent = "Bon travail. Relisez les modules où vous avez hésité avant de continuer.";
+    } else {
+      result.classList.add("tier-low");
+      messageEl.textContent = "Reprenez tranquillement les modules ci-dessus, puis retentez le quiz.";
+    }
+
+    result.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initGate();
   initTabs();
   initFiches();
+  initQuiz();
   const logoutBtn = document.getElementById("logout-btn");
   if (logoutBtn) logoutBtn.addEventListener("click", logout);
 });
