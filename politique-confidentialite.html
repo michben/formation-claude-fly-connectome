@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de confidentialité — michben</title>
+<meta name="description" content="Politique de confidentialité et gestion des cookies du site de formation michben.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="michben" class="logo-img"> michben</a>
+  </div>
+</header>
+
+<main class="container" style="padding: 40px 20px 70px; max-width: 760px;">
+  <h1 style="color:var(--navy);">Politique de confidentialité et cookies</h1>
+  <p style="color:var(--muted); font-size:0.85rem;">Dernière mise à jour : 18/09/2026</p>
+
+  <div class="card" style="margin:24px 0;">
+    <h3>🍪 Qu'est-ce qu'on stocke, et pourquoi ?</h3>
+    <p style="color:var(--muted);">Ce site utilise le stockage local de votre navigateur (localStorage) plutôt que des cookies publicitaires classiques. Rien de ce qui suit n'est partagé avec des régies publicitaires ni utilisé pour vous suivre sur d'autres sites.</p>
+    <table>
+      <tr><th>Donnée stockée</th><th>À quoi ça sert</th></tr>
+      <tr><td>Code d'accès à l'espace formation</td><td>Éviter de ressaisir votre code à chaque visite</td></tr>
+      <tr><td>Réponses aux quiz et aux fiches</td><td>Ne pas perdre votre progression entre deux visites</td></tr>
+      <tr><td>Identifiant de conversation (chat)</td><td>Retrouver l'historique de vos échanges avec l'agent et michben</td></tr>
+      <tr><td>Choix cookies (accepté/refusé)</td><td>Ne pas réafficher la bannière à chaque page</td></tr>
+    </table>
+  </div>
+
+  <div class="card" style="margin:24px 0;">
+    <h3>🔗 Services externes</h3>
+    <p style="color:var(--muted);">Certains boutons du site vous redirigent vers des services tiers, qui ont leurs propres règles de confidentialité :</p>
+    <ul class="check-list">
+      <li><strong>Stripe</strong> (paiement) — <a href="https://stripe.com/fr/privacy" target="_blank" rel="noopener">politique de confidentialité Stripe</a></li>
+      <li><strong>Calendly</strong> (réservation de créneaux) — <a href="https://calendly.com/privacy" target="_blank" rel="noopener">politique de confidentialité Calendly</a></li>
+    </ul>
+  </div>
+
+  <div class="card" style="margin:24px 0;">
+    <h3>💬 Chat et messages</h3>
+    <p style="color:var(--muted);">Si vous écrivez à l'agent de conversation, votre message et la réponse (automatique ou de michben) sont conservés pour assurer le suivi de votre demande. Ne partagez jamais de mot de passe, de clé API ou de coordonnées bancaires dans le chat — l'agent est d'ailleurs configuré pour refuser ce type d'information.</p>
+  </div>
+
+  <div class="card" style="margin:24px 0;">
+    <h3>🗑️ Comment supprimer ces données ?</h3>
+    <p style="color:var(--muted);">Vous pouvez à tout moment effacer ces données depuis les paramètres de votre navigateur (données de site / stockage local), ou en cliquant sur « Se déconnecter » dans l'espace formation. Pour une demande de suppression complète côté serveur (messages de chat, résultats de quiz), contactez michben via le chat du site.</p>
+  </div>
+
+  <div class="card" style="margin:24px 0;">
+    <h3>✋ Vos choix</h3>
+    <p style="color:var(--muted);">En refusant les cookies via la bannière, seules les données strictement nécessaires au fonctionnement du site que vous utilisez (par exemple votre code d'accès une fois saisi) continuent d'être enregistrées localement ; le reste n'est pas activé.</p>
+    <button type="button" class="btn btn-secondary btn-sm" onclick="localStorage.removeItem('mb_cookie_consent'); location.reload();">Revoir mon choix de cookies</button>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-note">
+      <a href="index.html">← Retour à l'accueil</a> · © michben.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
